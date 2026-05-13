@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   plugins: [
     react({
-      jsxRuntime: 'automatic'   // ← Это самое важное
+      jsxRuntime: 'automatic'
     }),
     tailwindcss()
   ],
@@ -20,6 +20,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: false
+    sourcemap: false,
   }
 });
