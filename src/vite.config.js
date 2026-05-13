@@ -4,8 +4,11 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [
-    react(),
-    tailwindcss()   // ← это главное для Tailwind v4
+    react({
+      // Явно включаем новый JSX transform
+      jsxRuntime: 'automatic'
+    }),
+    tailwindcss()
   ],
   server: {
     port: 3000,
@@ -13,6 +16,15 @@ export default defineConfig({
       '/api': {
         target: 'http://localhost:5000',
         changeOrigin: true,
+      }
+    }
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
       }
     }
   }
