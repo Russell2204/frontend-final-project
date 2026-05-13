@@ -5,8 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   plugins: [
     react({
-      // Явно включаем новый JSX transform
-      jsxRuntime: 'automatic'
+      jsxRuntime: 'automatic'   // ← Это самое важное
     }),
     tailwindcss()
   ],
@@ -21,11 +20,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: false,
-    rollupOptions: {
-      output: {
-        manualChunks: undefined
-      }
-    }
+    sourcemap: false
   }
 });
